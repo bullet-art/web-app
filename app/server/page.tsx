@@ -3,9 +3,10 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import Layout from "@/components/layout"
 
 import type { GetServerSidePropsContext } from "next"
-import type { Session } from "next-auth"
+import { getCurrentUser } from "@/lib/session";
 
-function Page({ session }: { session: Session | null }) {
+export default async function Page() {
+    const session = await getCurrentUser()
   // As this page uses Server Side Rendering, the `session` will be already
   // populated on render without needing to go through a loading stage.
   console.log("session props", session)
@@ -33,13 +34,3 @@ function Page({ session }: { session: Session | null }) {
     </Layout>
   )
 }
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return {
-    props: {
-      session: await getServerSession(context.req, context.res, authOptions),
-    },
-  }
-}
-
-export default Page

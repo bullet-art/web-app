@@ -12,7 +12,7 @@ yarn-error.log*
 lerna-debug.log*
 .yarn-integrity
 .npm
-
+pnpm-lock.yaml
 .eslintcache
 
 *.tsbuildinfo
