@@ -1,4 +1,4 @@
-import { Inter } from "@next/font/google"
+import { Inter } from "next/font/google"
 import { SessionProvider } from "@/components/SessionProvider";
 
 const font = Inter({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={"en"} className={font.className}>
-      <head/>
+      <head><title>Bullet Art</title></head>
         <body>
           <SessionProvider>
             {children}
