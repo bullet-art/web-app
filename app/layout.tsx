@@ -2,23 +2,23 @@ import { Inter } from "next/font/google"
 import { SessionProvider } from "@/components/SessionProvider";
 
 const font = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+    subsets: ["latin"],
+    variable: "--font-inter",
 })
 
 export default function RootLayout({
-  children,
+    children
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  return (
-    <html lang={"en"} className={font.className}>
-      <head><title>Bullet Art</title></head>
-        <body>
-          <SessionProvider>
-            {children}
-          </SessionProvider>
-        </body>
-    </html>
-  )
+    return (
+        <html lang={"en"} className={font.className}>
+        <head><title>Bullet Art</title></head>
+            <body>
+                <SessionProvider>
+                    {children}
+                </SessionProvider>
+            </body>
+        </html>
+    )
 }

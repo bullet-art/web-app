@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
             return session
         },
         async jwt({ token, user }) {
-            if (!user) return token
+            if (!user || !token.email) return token
 
             const dbUser = await db.user.findFirst({
                 where: {
@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
                 id: dbUser.id,
                 name: dbUser.name,
                 email: dbUser.email,
-                picture: dbUser.image,
+                image: dbUser.image
             }
         },
     },
